@@ -23,13 +23,15 @@ function addTodo (todoTitle, todoId) {
 function removeTodo(todoId) {
     document.querySelector(`#todo-item-${todoId}`).remove();
     document.querySelector(`#modal-item-${todoId}`).remove()
-    elTodosId.textContent = todos.length;
+
 
     todos.forEach((todo, i) => {
         if(todo.id === todoId) {
             todos.splice(i, 1);
         }
     });
+
+    elTodosId.textContent = todos.length;
 
     console.log(todos);
 }
@@ -116,12 +118,12 @@ function createHTMLTodo (todoTitle, todoId) {
 elTodosForm.addEventListener("submit", (e)=> {
     e.preventDefault();
 
-    elTodosId.textContent = todos.length;
-
     if (elTodosInput.value.length > 0) {
         addTodo(elTodosInput.value, initialId);
         initialId++
     }
+
+    elTodosId.textContent = todos.length;
 
     elTodosForm.reset()
     elTodosInput.focus()
