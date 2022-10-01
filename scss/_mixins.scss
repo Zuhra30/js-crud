@@ -1,0 +1,35 @@
+
+// Psevdoelementdagi uchburchak
+
+@mixin triangle ($direction, $size: 15px, $color: black) {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  content: "";
+
+  @if $direction == "up" {
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    border-bottom: $size solid $color;
+  } @else if $direction == "down" {
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    border-top: $size solid $color;
+  } @else if $direction == "left" {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-right: $size solid $color;
+  } @else if $direction == "right" {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-left: $size solid $color;
+  }
+}
+
+
+// Media so'rovlar uchun mixin
+@mixin mediaDevices ($screen-width) {
+  @media only screen and (max-width: $screen-width) {
+    @content;
+  }
+}

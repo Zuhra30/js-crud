@@ -1,0 +1,12 @@
+.edit-Input:disabled {
+    background-color: transparent;
+    border: none;
+}
+
+.edit-Input {
+    border: none;
+    outline: none;
+}
+.edit-Input:focus {
+    border-bottom: 1.5px solid green;
+}
